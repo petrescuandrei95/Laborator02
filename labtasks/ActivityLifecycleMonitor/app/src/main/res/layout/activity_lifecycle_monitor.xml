@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:ems="10"
+        android:saveEnabled="false"
         android:inputType="text"
         android:hint="@string/username">
         <requestFocus/>
@@ -35,12 +36,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:ems="10"
+        android:saveEnabled="false"
         android:inputType="textPassword"
         android:hint="@string/password"/>
 
     <CheckBox
         android:id="@+id/remember_me_checkbox"
         android:layout_width="wrap_content"
+        android:saveEnabled="false"
         android:layout_height="wrap_content"
         android:text="@string/remember_me_checkbox"/>
 

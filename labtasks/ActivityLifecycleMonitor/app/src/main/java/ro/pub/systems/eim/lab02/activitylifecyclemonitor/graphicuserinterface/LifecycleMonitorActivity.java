@@ -61,8 +61,56 @@ public class LifecycleMonitorActivity extends AppCompatActivity {
         okButton.setOnClickListener(buttonClickListener);
         Button cancelButton = (Button) findViewById(R.id.cancel_button);
         cancelButton.setOnClickListener(buttonClickListener);
+        if (savedInstanceState == null)
+            Log.d(Constants.TAG, "onCreate() method was invoked without a previous state");
+        else
+            Log.d(Constants.TAG, "onCreate() method was invoked with a previous state");
+    }
 
-        Log.d(Constants.TAG, "onCreate() method was invoked without a previous state");
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("activitylifecyclemonitor", "onRestart was invoked");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("activitylifecyclemonitor", "onStart was invoked");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("activitylifecyclemonitor", "onResume was invoked");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("activitylifecyclemonitor", "onPause was invoked");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("activitylifecyclemonitor", "onStop was invoked");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("activitylifecyclemonitor", "onDestroy was invoked");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        EditText usernameEditText = (EditText)findViewById(R.id.username_edit_text);
+        savedInstanceState.putString(Constants.USERNAME_EDIT_TEXT, usernameEditText.getText());
+        EditText passwordEditText = (EditText)findViewById(R.id.password_edit_text);
+        savedInstanceState.putString(Constants.PASSWORD_EDIT_TEXT, passwordEditText.getText());
+        
     }
 
 }
